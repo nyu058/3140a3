@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>A3Q2</title>
+</head>
+<body>
+<h3>Guess the Number!</h3>
+<label>Please guess the number between 1-1000:
+    <input type="number" min="1" max="1000" id="num">
+</label>
+<button id="guess">Guess!</button>
+<div id="result">
+
+</div>
+</body>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+
+    var num = Math.floor((Math.random() * 1000) + 1);
+
+    function guess(input, actual) {
+        if (input > actual)
+            return 'Too high. Try again.';
+        else if (input < actual)
+            return 'Too low. Try again.';
+        else return 'Congratulations. You guessed the number!';
+    }
+
+    $('guess').addEventListener('click', function () {
+        $('result').innerText = guess(parseInt($('num').value), num)
+    })
+
+</script>
+</html>

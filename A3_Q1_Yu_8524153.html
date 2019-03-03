@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>A3Q1</title>
+</head>
+
+<body>
+<label>Please enter the temperature in Celsius or Fahrenheit:
+    <input id="temp" type="number" step="0.01">
+</label>
+<br>
+<button id="c">
+    Convert F to C
+</button>
+<button id="f">
+    Convert C to F
+</button>
+<div>
+    <b>Result:&nbsp;</b><span id="display"></span>
+</div>
+<script>
+    function celsius(f) {
+        return Math.round(5.0 / 9.0 * (f - 32) * 100) / 100;
+    }
+
+    function fahrenheit(c) {
+        return Math.round((9.0 / 5.0 * c + 32) * 100) / 100;
+    }
+
+    function $(id) {
+        return document.getElementById(id);
+    }
+
+    $('c').addEventListener('click', function () {
+        $('display').innerText = celsius(parseFloat($('temp').value)) + ' C'
+    });
+    $('f').addEventListener('click', function () {
+        $('display').innerText = fahrenheit(parseFloat($('temp').value)) + ' F'
+    })
+</script>
+</body>
+</html>
